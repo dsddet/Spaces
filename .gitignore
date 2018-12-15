@@ -1,1 +1,13 @@
-node_modules
+#/Backend/spaces-backend/bin
+/Backend/spaces-backend/node_modules
+#/Backend/spaces-backend/public
+#/Backend/spaces-backend/routes
+#/Backend/spaces-backend/views
+#/Backend/spaces-backend/app.js
+#/Backend/spaces-backend/package-lock.json
+#/Backend/spaces-backend/package.json
+
+
+
+/Frontend/spaces-frontend/node_modules
+#/Frontend/spaces-frontend/
