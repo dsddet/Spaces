@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { ListingsService } from '../../services/get-approved-listings.service'
 
 @Component({
-  providers: [ListingsService],
+  //providers: [ListingsService],
   selector: 'app-approved-listing',
   templateUrl: './approved-listing.component.html',
   styleUrls: ['./approved-listing.component.css']

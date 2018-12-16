@@ -4,22 +4,19 @@ import {AdminModule} from './admin-module/admin-module.module'
 import {CustomerModule} from './customer/customer.module'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProviderComponent } from './provider/provider.component';
-import { AddHouseComponent } from './provider/add-house.component';
-import { EditHouseComponent } from './provider/edit-house.component';
+import { ProviderModule } from './provider/provider.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProviderComponent,
-    AddHouseComponent,
-    EditHouseComponent
-  ],
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    CustomerModule
+    ProviderModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

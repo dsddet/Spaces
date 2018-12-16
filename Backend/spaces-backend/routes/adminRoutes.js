@@ -14,9 +14,10 @@ router.get('/users/:id', (req, res) => {
 });
 
 //Delete specific user of any role given an ID
-router.delete('/users/:id', (req, res) => {
+router.delete('/users/:id/:role', (req, res) => {
     req.db.collection('users').findOneAndDelete({
-        _id: req.params.id
+        _id: req.params.id,
+        Role: req.params.role
     }, (err, user) => {
         if (err) {
             res.json(204, err);
@@ -26,22 +27,23 @@ router.delete('/users/:id', (req, res) => {
     })
 });
 
-//Get listings that have not yet been approved
-router.get('/listings/pending', (req, res) => {
-    req.db.collection('listings').find({
-        status: "notapproved"
-    }).toArray((err, data) => {
+//Get listings based on status
+router.get('/listings/:status', (req, res) => {
+    //res.json(req.db);
+    const fields = {
+        projection: {
+            _id: 1,
+            Details: 1,
+            Provider: 1,
+            Status: 1
+        }
+    };
+    const query = {
+        Status: req.params.status
+    };
+    req.db.collection('listings').find(query, fields).toArray((err, data) => {
         if (err) res.send(204);
-        res.status(200).json(data);
-    })
-});
-
-//Get listings that have been approved
-router.get('/listings/approved', (req, res) => {
-    req.db.collection('listings').find({
-        status: "approved"
-    }).toArray((err, data) => {
-        if (err) res.send(204);
+        //console.log(data);
         res.status(200).json(data);
     })
 });
@@ -52,7 +54,7 @@ router.patch('/listings/:listingId/:status', (req, res) => {
         _id: req.params.listingId
     }, {
         '$set': {
-            status: req.params.status
+            Status: req.params.status
         }
     }, (err, updated) => {
         if (err) res.send(204);
@@ -65,13 +67,22 @@ router.patch('/listings/:listingId/:status', (req, res) => {
 
 // add admin user
 router.post('/users/', function (req, res) {
-    req.db.collection('users').insert(req.body, (err, user) => {
-        if (err) {
-            res.json(204, err);
-        } else {
-            res.json(201, {Message:"Success"})
-        }
-    })
+
+    if (req.body.Role === "admin") {
+        req.db.collection('users').insert(req.body, (err, user) => {
+            if (err) {
+                res.json(204, err);
+            } else {
+                res.json(201, {
+                    Message: "Success"
+                })
+            }
+        })
+    } else {
+        res.json(209, {
+            Message: "Error! Check that role set to 'admin' <case sensitive>"
+        })
+    }
 });
 
 

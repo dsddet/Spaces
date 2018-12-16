@@ -17,6 +17,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//Adding support for cors requests
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,10 +33,10 @@ app.use(connectToDb);
 
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
-app.use('/', adminRoutes);
+app.use('/admin', adminRoutes);
 
-app.use('/', customerRouter);
-app.use('/', providerRouter);
+app.use('/customer', customerRouter);
+app.use('/provider', providerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
