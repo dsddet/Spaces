@@ -2,20 +2,43 @@
         <h3>Add New House</h3>
         <div class="row">
           <div class="col-md-6">
-            <form (ngSubmit)="saveHome()" #homeForm="ngForm">
+            <form (ngSubmit)="addHome()" #homeForm="ngForm">
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" [(ngModel)]="book.isbn" name="isbn" required>
+                <input type="text" class="form-control" [(ngModel)]="house.Name" name="name" required><!--  name="" required>-->
               </div>
               <div class="form-group">
-                <label for="name">Address</label>
-                <input type="text" class="form-control" [(ngModel)]="book.title" name="title" required>
+                <label for="name">Address:</label>
+                <div class="form-group" id="address">
+                    <label for="name">Street:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Address.Street" name="street" required>
+                    <label for="name">City:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Address.City" name="city" required>
+                    <label for="name">State:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Address.State" name="state" required>
+                    <label for="name">Zip:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Address.Zip" name="zip" required><!-- [(ngModel)]="" name="" required>-->
+                </div>
+                
               </div>
               <div class="form-group">
-                <label for="name">Details</label>
-                <input type="text" class="form-control" [(ngModel)]="book.author" name="author" required>
+                <label for="name">Details: </label>
+                <div class="form-group" id="address">
+                    <label for="name">Bedrooms:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Details.Bedrooms" name="bed" required>
+                    <label for="name">Bathrooms:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Details.Bedrooms" name="bath" required>
+                    <label for="name">Size (sq.ft):</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Details.Size" name="size" required>
+                    <label for="name">Price:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Details.Price" name="price" required>
+                    <label for="name">Amenities:</label>
+                    <input type="text" class="form-control" [(ngModel)]="house.Details.Amenities" name="amenities" required><!-- [(ngModel)]="" name="" required>-->
+                </div>
               </div>
-              
+              <div class="form-group">
+                  <button type="submit" class="btn btn-success">Add House</button> <!--[disabled]="!houseForm.form.valid">Add House</button>-->
+                </div>
             </form>
           </div>
         </div>
