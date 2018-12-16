@@ -1,7 +1,7 @@
 const router = require ('express').Router();
 
 // get users by id (email)
-router.get('/:id',function(req,res) {
+router.get('user/customer/:id',function(req,res) {
     const collection = req.db.collection('users');
     collection.findOne({"_id":req.params.id},function (err,user){
         if (err) {
@@ -12,19 +12,8 @@ router.get('/:id',function(req,res) {
     });
 });
 
-// get reservations for user with specified id
-router.get('/:id/reservations', function(req,res) {
-    req.db.collection('users').find({"_id":req.params.id}, function(err,user) {
-        if (err) {
-            res.send(204);
-        } else {
-            res.json(200, user.reservations);
-        }
-    });
-});
-
 // add user
-router.post('/', function (req,res){
+router.post('/user/customer', function (req,res){
     req.db.collection('users').insert(req.body, (err,user) => {
         if(err) {
             // Set error header
@@ -38,8 +27,8 @@ router.post('/', function (req,res){
 
 // update user information with specified id
 // request should have a properly formatted user data that can be added to the database 
-router.patch('/:id', function(req,res){
-    req.db.collection('users').update({_id:req.params.id}, {$set:req.body}, (err,user) => {
+router.patch('user/customer/:id', function(req,res){
+    req.db.collection('user').update({_id:req.params.id}, {$set:req.body}, (err,user) => {
         if (err) {
             // set error header
             res.send(204);
@@ -51,8 +40,8 @@ router.patch('/:id', function(req,res){
 });
 
 // delete user with specified id
-router.delete('/:id', function(req,res){
-    req.db.collection('users').delete({_id:req.params.id}, (err, user) => { 
+router.delete('user/customer/:id', function(req,res){
+    req.db.collection('user').delete({_id:req.params.id}, (err, user) => { 
         if (err) {
             // set error header
             res.send(204, "No user found with id: " + req.params.id);
@@ -61,6 +50,19 @@ router.delete('/:id', function(req,res){
             res.send(200, "User successfully deleted!");
         }
     })
+});
+
+// get reservations for user with specified id
+router.get('listing/customer/:id/', function (req, res) {
+    req.db.collection('listing')
+        .find({ "reservedBy": req.params.id })
+        .toArray(function (err, reservations) {
+            if (err) {
+                res.send(204);
+            } else {
+                res.json(200, reservations);
+            }
+        });
 });
 
 module.exports = router;
