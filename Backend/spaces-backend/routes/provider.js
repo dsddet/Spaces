@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 // fetches list of listing for a specific provider
-router.get('/listing/:provider_id',(req,res)=>{
+router.get('/listings/:provider_id',(req,res)=>{
     req.db.collection('listings').find({"Provider":req.params.provider_id})
             .toArray((err,docs)=>{
                 if(err) res.send(204);
