@@ -1,7 +1,7 @@
 const router = require ('express').Router();
 
 // get user by id
-router.get('/user/customer/:id',function(req,res) {
+router.get('/user/:id',function(req,res) {
     req.db.collection('users').findOne({"_id":req.params.id},function (err,user){
         if (err) {
             res.json(204,err);
@@ -12,7 +12,7 @@ router.get('/user/customer/:id',function(req,res) {
 });
 
 // add user to database
-router.post('/user/customer', function (req,res){
+router.post('/user', function (req,res){
     req.db.collection('users').insert(req.body, (err,user) => {
         console.log(req.body);
         if(err) {
@@ -27,7 +27,7 @@ router.post('/user/customer', function (req,res){
 
 // update user information with specified id
 // request should have a properly formatted user data that can be added to the database 
-router.patch('/user/customer/:id', function(req,res){
+router.patch('/user/:id', function(req,res){
     req.db.collection('users').findOneAndUpdate({"_id":req.params.id}, {'$set':req.body}, (err,user) => {
         console.log(user);
         if (err) {
@@ -41,7 +41,7 @@ router.patch('/user/customer/:id', function(req,res){
 });
 
 // delete user with specified id
-router.delete('/user/customer/:id', function(req,res){
+router.delete('/user/:id', function(req,res){
     req.db.collection('users').findOneAndDelete({_id:req.params.id}, (err, user) => { 
         if (err) {
             // set error header
@@ -68,7 +68,7 @@ router.get('/listing/:customer_id/', function (req, res) {
 
 
 // reserve listing for user
-router.post('/listing/reserve/:listing_id/:customer_id/', function (req, res) {
+router.post('/listing/reserve/:listing_id/:customer_id', function (req, res) {
     req.db.collection('listings')
         .findOneAndUpdate({ "_id": req.params.listing_id}, {$set:{"ReservedBy":req.params.customer_id}}, (err,data) => {
             if (err) {
