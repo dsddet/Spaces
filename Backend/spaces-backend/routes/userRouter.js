@@ -5,16 +5,14 @@ router.get('/:id',function(req,res) {
     const collection = req.db.collection('users');
     collection.findOne({"_id":req.params.id},function (err,user){
         if (err) {
-            req.user = null;
             res.send(204);
         } else {
-            req.user = user 
-            res.send(200);
+            res.json(200, user);
         }
     });
 });
 
-// get reservation for user with specified id
+// get reservations for user with specified id
 router.get('/:id/reservations', function(req,res) {
     req.db.collection('users').find({"_id":req.params.id}, function(err,user) {
         if (err) {
