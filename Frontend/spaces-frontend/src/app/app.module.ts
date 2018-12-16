@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AdminModule} from './admin-module/admin-module.module'
+import {CustomerModule} from './customer/customer.module'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProviderComponent } from './provider/provider.component';
@@ -17,7 +18,8 @@ import { EditHouseComponent } from './provider/edit-house.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminModule
+    AdminModule,
+    CustomerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
