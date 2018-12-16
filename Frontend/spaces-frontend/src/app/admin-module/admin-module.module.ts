@@ -12,11 +12,11 @@ import { ListingsService } from './services/get-approved-listings.service';
   declarations: [LoginHomeComponent, UserManagementComponent, PendingListingComponent, ApprovedListingComponent, LogoutComponent],
   providers:[ListingsService],
   imports: [CommonModule, RouterModule.forRoot([
-    { path: 'providers', component: UserManagementComponent },
-    {path:'customers',component:UserManagementComponent},
-    { path: 'logout', component: LogoutComponent },
-    { path: 'pending', component: PendingListingComponent },
-    {path:'listings',component:ApprovedListingComponent}
+    { path: 'admin/providers', component: UserManagementComponent },
+    {path:'admin/customers',component:UserManagementComponent},
+    { path: 'admin/logout', component: LogoutComponent },
+    { path: 'admin/pending', component: PendingListingComponent },
+    {path:'admin/listing',component:ApprovedListingComponent}
   ])],
   exports: [LoginHomeComponent, UserManagementComponent, PendingListingComponent, ApprovedListingComponent, LogoutComponent],
 })
