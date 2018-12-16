@@ -31,6 +31,10 @@ export class ListingsService {
     return this.http.get(`http://localhost:4201/admin/listings/${listingId}/${status}`);
   }
 
+  addAdmin(admin: object): any {
+    return this.http.post(`http://localhost:4201/admin/users/`,admin);
+  }
+
 
 
 }
