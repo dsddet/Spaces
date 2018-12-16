@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-router.get('/lists/:provider_id',(req,res)=>{
-    var provider_id = req.params._id;
-    req.db.collection('listing').find({"provider":provider_id})
+// fetches list of listing for a specific provider
+router.get('/listing/:provider_id',(req,res)=>{
+    req.db.collection('listings').find({"Provider":req.params.provider_id})
             .toArray((err,docs)=>{
                 if(err) res.send(204);
                     res.status(200).json(docs);
@@ -10,21 +10,21 @@ router.get('/lists/:provider_id',(req,res)=>{
 });
 
 router.post('/',(req,res)=>{
-    req.db.collection('listing').insert(req.body, (err, data)=>{ 
+    req.db.collection('listings').insert(req.body, (err, data)=>{ 
         if(err) res.send(204);
             res.status(203).json({ok:true});
     });
 });
 
 router.delete('/:list_id', (req,res)=>{
-    req.db.collection('listing').remove({_id:req.params._id}, (err)=>{
+    req.db.collection('listings').remove({_id:req.params.list_id}, (err)=>{
         if(err) res.send(204);
             res.status(200).json({ok:true});
     });
 });
 
 router.patch('/:list_id', (req,res)=>{
-    req.db.collection('listing').update({_id:req.params._id},{'$set':req.body},(err,updated)=>{
+    req.db.collection('listings').update({_id:req.params.list_id},{'$set':req.body},(err,updated)=>{
         if(err) res.send(204);
             res.status(201).json({'success':'ok'});
     });

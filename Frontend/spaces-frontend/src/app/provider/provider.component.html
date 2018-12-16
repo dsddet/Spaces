@@ -1,0 +1,17 @@
+<h1>Provider Page</h1>
+    <nav>
+        What do you want to do? 
+      <a routerLink="addhouse" routerLinkActive="active" >Add House</a> &nbsp;
+      <a routerLink="edithouse" routerLinkActive="active" >Edit House</a>
+    </nav>
+    <router-outlet></router-outlet>
+    <hr>
+
+<div>
+    <h3>List of houses you added</h3>
+    <ul>
+        <li *ngFor = "let h of houses">{{h}}</li>
+    </ul>
+</div>
+
+    

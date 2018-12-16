@@ -7,8 +7,9 @@ var logger = require('morgan');
 //imported middleware to add db connection
 var connectToDb = require('./custom-Middleware/db');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var adminRoutes = require('./routes/adminRoutes');
+var providerRouter = require('./routes/provider');
+var customerRouter = require('./routes/customer');
 
 var app = express();
 
@@ -24,9 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(connectToDb);
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 app.use('/', adminRoutes);
 
+app.use('/', customerRouter);
+app.use('/', providerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
