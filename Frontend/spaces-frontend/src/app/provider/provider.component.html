@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <h1>Provider Page</h1>
     <nav>
         What do you want to do? 
@@ -9,10 +11,41 @@
 
 <div class="container">
     <h3>List of houses you added</h3>
-   <table class="table">
+   <table class="table" border="1">
+        <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Address</th>
+                  <th>Details</th>
+                  <th>Date Created</th>
+                  <th>Status</th>
+                  <th>Reserved by</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
        <tbody>
            <tr *ngFor="let h of houses">
-               <td>{{h._id}}</td>
+               <td>{{h.Name}}</td>
+               <td>
+                   <p>{{h.Address.Street}}</p>
+                   <p>{{h.Address.City}}</p>
+                   <p>{{h.Address.State}}</p>
+                   <p>{{h.Address.Zip}}</p>
+               </td>
+               <td>
+                   <p>{{h.Details.Bedrooms}}-Bedrooms</p>
+                   <p>{{h.Details.Bathrooms}}-Bathrooms</p>
+                   <p>Size: {{h.Details.Size}} sq.ft</p>
+                   <p>Price: ${{h.Details.Price}}</p>
+                   <p>Amenities: {{h.Details.Amenities}}</p>
+               </td>
+               <td>{{h.DateCreated}}</td>
+               <td>{{h.Status}}</td>
+               <td>{{h.ReservedBy}}</td>
+               <td>
+                   <p><a href="">Edit</a></p>
+                   <p><a href="">Delete</a></p>
+               </td>
            </tr>
        </tbody>
    </table>

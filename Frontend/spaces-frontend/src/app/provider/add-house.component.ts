@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'add-house',
-  template: `
-    <h3>Add house details</h3>
-    Type :<input type = "text"/>
-    <br/>Price :<input type = "text"/>
-    <br/>Location :<input type = "text"/>
-    `,
+  templateUrl: 'add-house.component.html'
+    ,
   styles: []
 })
 export class AddHouseComponent implements OnInit {

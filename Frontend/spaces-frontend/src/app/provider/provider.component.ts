@@ -16,7 +16,7 @@ export class ProviderComponent implements OnInit{
    this.http.get('http://localhost:4201/provider/listings/provider1@email.com')
             .subscribe(data=>{
               this.houses = data;
-              console.log(data);
+              console.log(JSON.stringify(data));
             })
  }
  
