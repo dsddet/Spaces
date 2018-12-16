@@ -8,14 +8,9 @@ import { ListingsService } from '../../services/get-approved-listings.service'
   styleUrls: ['./approved-listing.component.css']
 })
 export class ApprovedListingComponent implements OnInit {
-
-
   data: any;
 
   constructor(private listingService: ListingsService) { }
-
-
-
 
   ngOnInit() {
 
