@@ -76,7 +76,7 @@ router.post('/listing/reserve/:listing_id/:customer_id/', function (req, res) {
             } else {
                 req.db.collection('user').findOneAndUpdate({"_id":req.params.customer_id}, {$addToSet:{"Reservations":req.params.listing_id}}, (err,user) => {
                     if (err) {
-                        res.json(204,"error adding to user");
+                        res.json(204, "error adding to user");
                     } else {
                         res.json(200,{"user":user, "data":data});
                     }
