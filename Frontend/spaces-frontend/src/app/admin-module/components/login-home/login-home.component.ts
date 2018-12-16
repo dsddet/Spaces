@@ -24,7 +24,7 @@ export class LoginHomeComponent implements OnInit {
   }
 
   printData() {
-    this.listingService.getPendingListings().subscribe(x => console.log(x.results));
+    this.listingService.getListings("approved").subscribe(x => console.log(x));
   }
 
   

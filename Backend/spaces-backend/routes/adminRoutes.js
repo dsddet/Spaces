@@ -49,7 +49,7 @@ router.get('/listings/:status', (req, res) => {
 });
 
 //Update specific listing status to either approved or disapproved
-router.patch('/listings/:listingId/:status', (req, res) => {
+router.post('/listings/:listingId/:status', (req, res) => {
     req.db.collection('listings').update({
         _id: req.params.listingId
     }, {
