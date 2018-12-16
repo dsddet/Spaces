@@ -33,10 +33,10 @@ app.use(connectToDb);
 
 app.use('/', indexRouter);
 //app.use('/users', usersRouter);
-app.use('/', adminRoutes);
+app.use('/admin', adminRoutes);
 
-app.use('/', customerRouter);
-app.use('/', providerRouter);
+app.use('/customer', customerRouter);
+app.use('/provider', providerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
