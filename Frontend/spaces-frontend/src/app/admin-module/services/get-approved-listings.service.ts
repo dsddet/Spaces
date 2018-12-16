@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
+import { HttpClientModule ,HttpClient} from '@angular/common/http';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ListingsService {
-  data: any[];
+  data: any;
 
-  constructor() { 
-  
-    this.data = [{ "_id": { "$numberInt": "1" }, "Name": "Utopia1", "Address": { "Street": "Utopia Street", "City": "Fairfield", "State": "IA", "Zip": "52557" }, "Details": { "Bedrooms": "2", "Bathrooms": "2", "Size": "1000", "Price": "500", "Amenities": "Very nice" }, "Status": "Pending", "Provider": "provider1@email.com", "DateCreated": "01/10/2010", "DateModified": "03/10/2012", "ReservedBy": "customer1@gmail.com" },
-{ "_id": "2", "Name": "Utopia2", "Address": { "Street": "Utopia Street", "City": "Fairfield", "State": "IA", "Zip": "52557" }, "Details": { "Bedrooms": "2", "Bathrooms": "2", "Size": "1000", "Price": "500", "Amenities": "Very nice" }, "Status": "Pending", "Provider": "provider1@email.com", "DateCreated": "01/10/2010", "DateModified": "03/10/2012", "ReservedBy": "customer1@gmail.com" },
-{ "_id": "3", "Name": "Utopia1", "Address": { "Street": "Utopia Street", "City": "Fairfield", "State": "IA", "Zip": "52557" }, "Details": { "Bedrooms": "2", "Bathrooms": "2", "Size": "1000", "Price": "500", "Amenities": "Very nice" }, "Status": "Pending", "Provider": "provider2@email.com", "DateCreated": "01/10/2010", "DateModified": "03/10/2012", "ReservedBy": "customer2@gmail.com" }]
+  constructor(private http: HttpClient) {
+
+    http.get('http://localhost:4201/listings/notapproved').subscribe(x => console.log(x));
+
+    //http://localhost:4201/listings/notapproved
   }
 
-  getPendingListings() {
-    return this.data;
+  getPendingListings():any {
+    return this.http.get('http://localhost:4201/listings/notapproved'); 
   }
 
 }

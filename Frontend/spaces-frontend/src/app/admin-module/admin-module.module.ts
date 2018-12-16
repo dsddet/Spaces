@@ -7,10 +7,11 @@ import { ApprovedListingComponent } from './components/approved-listing/approved
 import { LogoutComponent } from './components/logout/logout.component';
 import { RouterModule } from '@angular/router';
 import { ListingsService } from './services/get-approved-listings.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [LoginHomeComponent, UserManagementComponent, PendingListingComponent, ApprovedListingComponent, LogoutComponent],
-  providers:[ListingsService],
+ // providers:[ListingsService],
   imports: [CommonModule, RouterModule.forRoot([
     { path: 'admin/providers', component: UserManagementComponent },
     {path:'admin/customers',component:UserManagementComponent},
@@ -18,7 +19,7 @@ import { ListingsService } from './services/get-approved-listings.service';
     { path: 'admin/pending', component: PendingListingComponent },
     { path: 'admin/listing', component: ApprovedListingComponent },
     {path:'admin/home',component:LoginHomeComponent}
-  ])],
+  ]),HttpClientModule],
   exports: [LoginHomeComponent, UserManagementComponent, PendingListingComponent, ApprovedListingComponent, LogoutComponent],
 })
 export class AdminModule { }
