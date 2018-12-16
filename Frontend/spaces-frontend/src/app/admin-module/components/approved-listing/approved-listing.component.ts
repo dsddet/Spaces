@@ -7,20 +7,18 @@ import { ListingsService } from '../../services/get-approved-listings.service'
   templateUrl: './approved-listing.component.html',
   styleUrls: ['./approved-listing.component.css']
 })
-export class ApprovedListingComponent implements OnInit{
+export class ApprovedListingComponent implements OnInit {
 
 
   data: any;
-  
-  constructor(private listingService: ListingsService) {  }
 
-  getUsers() {
-    return this.listingService.getPendingListings()
-  }
+  constructor(private listingService: ListingsService) { }
 
-  
+
+
+
   ngOnInit() {
-    this.data=this.getUsers();
+
   }
 
 
