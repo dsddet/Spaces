@@ -8,6 +8,7 @@ var logger = require('morgan');
 var connectToDb = require('./custom-Middleware/db');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var adminRoutes = require('./routes/adminRoutes');
 
 var app = express();
 
@@ -24,6 +25,7 @@ app.use(connectToDb);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/', adminRoutes);
 
 
 // catch 404 and forward to error handler
