@@ -16,7 +16,8 @@ import { ListingsService } from './services/get-approved-listings.service';
     {path:'admin/customers',component:UserManagementComponent},
     { path: 'admin/logout', component: LogoutComponent },
     { path: 'admin/pending', component: PendingListingComponent },
-    {path:'admin/listing',component:ApprovedListingComponent}
+    { path: 'admin/listing', component: ApprovedListingComponent },
+    {path:'admin/home',component:LoginHomeComponent}
   ])],
   exports: [LoginHomeComponent, UserManagementComponent, PendingListingComponent, ApprovedListingComponent, LogoutComponent],
 })
