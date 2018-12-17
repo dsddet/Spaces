@@ -15,8 +15,8 @@ import { ProviderModule } from './provider/provider.module';
     BrowserModule,
     AppRoutingModule,
     AdminModule,
-    ProviderModule
-    
+    ProviderModule,
+    CustomerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

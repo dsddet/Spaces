@@ -1,22 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'listing',
-  template: `
-    <div class= "col-sm-4" >
-        <div class="panel panel-primary">
-            <div class="panel-heading"> 
-                BLACK FRIDAY DEAL
-            </div >
-            
-            <div > 
-                <span>Price: 100</span>
-                <button type="button" class="btn btn-success">Reserve</button>
-            </div>
-            
-        </div>
-    </div>
-    `
+  selector: 'listings',
+  templateUrl: './listing.component.html'
 })
 export class ListingComponent implements OnInit {
 
@@ -24,5 +10,4 @@ export class ListingComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
