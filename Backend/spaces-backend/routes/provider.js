@@ -9,7 +9,7 @@ router.get('/listings/:provider_id',(req,res)=>{
             });
 });
 
-router.post('/',(req,res)=>{
+router.post('/listings',(req,res)=>{
     req.db.collection('listings').insert(req.body, (err, data)=>{ 
         if(err) res.send(204);
             res.status(203).json({ok:true});
