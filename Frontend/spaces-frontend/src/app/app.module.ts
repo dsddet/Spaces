@@ -5,6 +5,8 @@ import {CustomerModule} from './customer/customer.module'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProviderModule } from './provider/provider.module';
+import { StoreModule} from '@ngrx/store';
+import { addCoinReducer} from './redux/store'
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { ProviderModule } from './provider/provider.module';
     AppRoutingModule,
     AdminModule,
     ProviderModule,
-    CustomerModule
+    CustomerModule,
+    StoreModule.forRoot({blockchain:addCoinReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
