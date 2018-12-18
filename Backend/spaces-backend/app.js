@@ -9,7 +9,7 @@ var cors = require('cors');
 var connectToDb = require('./custom-Middleware/db');
 var indexRouter = require('./routes/index');
 var adminRoutes = require('./routes/adminRoutes');
-var providerRouter = require('./routes/provider');
+var providerRouter = require('./routes/providerRoutes');
 var customerRouter = require('./routes/customer');
 
 var app = express();

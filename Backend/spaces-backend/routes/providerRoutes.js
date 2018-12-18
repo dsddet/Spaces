@@ -30,7 +30,7 @@ router.delete('/delete/:list_id', (req,res)=>{
     });
 });
 
-router.patch('/patch/:list_id', (req,res)=>{
+router.put('/put/:list_id',(req,res)=>{
     req.db.collection('listings').findOneAndUpdate({"_id":req.params.list_id},{'$set':req.body},(err,updated)=>{
         if(err) res.sendStatus(204);
             res.status(201).json({'success':'ok'});

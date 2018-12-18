@@ -4,7 +4,8 @@
     <nav>
         What do you want to do? 
       <a routerLink="provider/addhouse" routerLinkActive="active" >Add House</a> &nbsp;
-      <a routerLink="provider/edithouse/:_id" routerLinkActive="active" >Edit House</a>
+      <a routerLink="provider/edithouse" routerLinkActive="active" >Edit House</a>&nbsp;
+      <a routerLink="provider/deletehouse" routerLinkActive="active" >Delete House</a>
     </nav>
     <router-outlet></router-outlet>
     <hr>
@@ -20,7 +21,6 @@
                   <th>Date Created</th>
                   <th>Status</th>
                   <th>Reserved by</th>
-                  <th>Action</th>
                 </tr>
               </thead>
        <tbody>
@@ -42,10 +42,7 @@
                <td>{{h.DateCreated}}</td>
                <td>{{h.Status}}</td>
                <td>{{h.ReservedBy}}</td>
-               <td>
-                   
-                   <p><button class="btn btn-danger" type="button" (click)="deleteHouse()">DELETE</button></p>
-               </td>
+               
            </tr>
        </tbody>
    </table>
