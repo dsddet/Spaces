@@ -7,7 +7,7 @@ import { ListingsService } from './admin-module/services/get-approved-listings.s
 @Component({
   selector: 'app-root',
     
-   template: `<provider-home></provider-home>`, //Provider by Bre
+   //template: `<provider-home></provider-home>`, //Provider by Bre
   
   //template: ` <app-login-home></app-login-home> `, //Admin by Deus
 
@@ -23,7 +23,11 @@ import { ListingsService } from './admin-module/services/get-approved-listings.s
   //         {{ coin.name }}  {{ coin.price }}
   //     </li></ol>
   // `,
-  
+  //templateUrl: './app.component.html',
+  template:`
+  <home-page></home-page>
+  <listing-view></listing-view>
+`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
