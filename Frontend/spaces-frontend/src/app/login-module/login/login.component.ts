@@ -36,14 +36,14 @@ export class LoginComponent {
       password: this.loginForm.value.password
     };
 
-    this.authService
-      .login(login)
-      .subscribe(
-        response => {
-          localStorage.setItem('_token',response._token);
-          console.log(response);
-        },
-        error => console.log(error)
-      );
-  }
+  //   this.authService
+  //     .login(login)
+  //     .subscribe(
+  //       response => {
+  //         localStorage.setItem('_token',response._token);
+  //         console.log(response);
+  //       },
+  //       error => console.log(error)
+  //     );
+   }
 }
