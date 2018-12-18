@@ -1,33 +1,31 @@
-import { Component, OnInit,Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { ListingsService } from '../../services/get-approved-listings.service'
+import { Store } from '@ngrx/store';
+import {AppState } from '../../../redux/store';
+
 
 @Component({
- // providers: [ListingsService],
+  // providers: [ListingsService],
   selector: 'app-login-home',
   templateUrl: './login-home.component.html',
   //<p class="listing" *ngFor="let listing of data">{{listing["Name"]}}</p>
-  //template:`<button (click)="printData()">Results</button> `,
+  //template: `{{data}}`,
   styleUrls: ['./login-home.component.css'],
-  
+
 })
 export class LoginHomeComponent implements OnInit {
-  data: any;
+  //@Input() data: string;
 
-  constructor(private listingService: ListingsService) { }
-
-  getUsers() {
-
+  constructor(private store: Store<AppState>) { 
+    
   }
+
 
   ngOnInit() {
-    this.data = this.getUsers();
+    this.store.select('spaces').subscribe(x => console.log(x.user));
   }
 
-  printData() {
-    this.listingService.getListings("approved").subscribe(x => console.log(x));
-  }
 
-  
 
 
 }

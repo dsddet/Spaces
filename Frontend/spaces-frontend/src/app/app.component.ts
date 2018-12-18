@@ -9,9 +9,9 @@ import { filter } from 'rxjs/Operators';
 @Component({
   selector: 'app-root',
 
-   //template: `<provider-home></provider-home>`, //Provider by Bre
+  //template: `<provider-home></provider-home>`, //Provider by Bre
 
-  template: ` <app-login-home></app-login-home> `, //Admin by Deus
+  template: ` <app-login-home ></app-login-home> `, //Admin by Deus
 
   //template :  `<customer-home></customer-home>`, // Customer by Dawit
 
@@ -21,16 +21,16 @@ import { filter } from 'rxjs/Operators';
   // <br><br>
 
   // <ul>
-  
+
   // <li *ngFor="let listing of sub">
   // {{listing._id}}
   // {{listing.Status}}
   // {{listing.Provider}}
-  
+
   // </li>
 
   // </ul>
-      
+
   // `,
 
   styleUrls: ['./app.component.css']
@@ -45,15 +45,15 @@ export class AppComponent {
 
   constructor(private store: Store<AppState>, private service: ListingsService) {
 
-    var subscript = this.service.getListings("any").subscribe(x => this.sub = x);
-    this.store.dispatch({ type: 'ADD_LISTINGS', payload: { listings: this.sub } });
+    // var subscript = this.service.getListings("any").subscribe(x => this.sub = x);
+    // this.store.dispatch({ type: 'ADD_LISTINGS', payload: { listings: this.sub } });
 
     var subscr = this.store.select('spaces').subscribe(x => this.message = x);
 
-    this.service.getUserById("1").subscribe(x => this.user = x);  
-    this.store.dispatch({ type: 'NEW USER', payload: this.user });
-    
-    
+    // this.service.getUserById("1").subscribe(x => this.user = x);
+    // this.store.dispatch({ type: 'NEW USER', payload: this.user });
+
+
 
 
   }
