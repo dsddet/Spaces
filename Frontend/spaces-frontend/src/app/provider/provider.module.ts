@@ -10,7 +10,7 @@ import { EditHouseComponent } from './edit-house.component';
 const routes: Routes = [
   {path: 'provider', component: ProviderComponent},
   {path: 'provider/addhouse', component: AddHouseComponent},
-  {path: 'provider/edithouse', component: EditHouseComponent}
+  {path: 'provider/edithouse/:_id', component: EditHouseComponent}
 ];
 
 @NgModule({
