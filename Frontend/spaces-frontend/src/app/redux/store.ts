@@ -2,7 +2,7 @@ import { Action } from '@ngrx/store';
 
 export const ADD_COIN = 'ADD_COIN';
 
-export function addCoinReducer(state: any = { listings:[1,2,3,4,5],user:"deusdedit"}, action) {
+export function addCoinReducer(state: any = INITIAL_STATE, action) {
     switch (action.type) {
         
         case 'ADD_LISTINGS':
@@ -16,21 +16,22 @@ export function addCoinReducer(state: any = { listings:[1,2,3,4,5],user:"deusded
 
 const INITIAL_STATE = {
     listings: [
-        { _id: 1, Status: "pending", Price: 800 },
-        { _id: 2, Status: "pending", Price: 800 },
-        { _id: 3, Status: "pending", Price: 800 },
-        { _id: 4, Status: "pending", Price: 800 },
-        { _id: 5, Status: "pending", Price: 800 },
-        { _id: 6, Status: "pending", Price: 800 },
-        { _id: 7, Status: "pending", Price: 800 },
-        { _id: 8, Status: "approved", Price: 800 },
-        { _id: 9, Status: "approved", Price: 800 },
-        { _id: 10, Status: "approved", Price: 800 },
-        { _id: 11, Status: "approved", Price: 800 },
-        { _id: 12, Status: "approved", Price: 800 },
-        { _id: 13, Status: "approved", Price: 800 },
-        { _id: 14, Status: "approved", Price: 800 }
-    ]
+        { _id: 1, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 2, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 3, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 4, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 5, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 6, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 7, Status: "pending", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 8, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 9, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 10, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 11, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 12, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 13, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } },
+        { _id: 14, Status: "approved", Price: 800, Details: { name: "Utopia Park in Fairfield, Iowa.", address: "1000N 4th Street" } }
+    ],
+    user:"Deusdedit"
 }
 
 export interface AppState {

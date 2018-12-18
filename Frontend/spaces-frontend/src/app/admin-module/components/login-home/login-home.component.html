@@ -13,12 +13,56 @@
 </head>
 
 <body>
-  <div class="jumbotron">
+  <!-- <div class="jumbotron">
     <div class="container text-center">
       <h1>SPACES</h1>
       <p>FIND YOUR DREAM HOME</p>
+
     </div>
+  </div> -->
+
+  <div id="nav">
+    <span>
+      <a [routerLink]="['/admin/customers']">Customers</a>
+    </span>
+    <span>
+      <a [routerLink]="['admin/providers']">Providers</a>
+    </span>
+    <span>
+      <a [routerLink]="['admin/pending']">Listings</a></span>
   </div>
+
+
+
+  <div id="header">
+    <div id="logout">
+      Logout
+    </div>
+
+    <router-outlet>
+
+
+
+    </router-outlet>
+
+    <div>
+      <div *ngFor="let listing of data">
+
+        <span *ngIf="listing.Status==='approved'">
+          <app-listing-detail [name]=listing.Price>
+          </app-listing-detail>
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+
 
   <div style="text-align:center">
     <ul class="pagination">
@@ -29,40 +73,6 @@
       <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
   </div>
-
-
-  <div id="header">
-    <div id="logout">
-      Logout {{data}}
-    </div>
-
-    <router-outlet>
-
-
-
-    </router-outlet>
-
-    <div>
-      <app-listing-detail></app-listing-detail>
-
-    </div>
-
-
-    <div id="nav">
-      <span>
-        <a [routerLink]="['/admin/customers']">Customers</a>
-      </span>
-      <span>
-        <a [routerLink]="['admin/providers']">Providers</a>
-      </span>
-      <span>
-        <a [routerLink]="['admin/pending']">Listings</a></span>
-    </div>
-
-
-  </div>
-
-
 
 
 

@@ -1,0 +1,25 @@
+.container {
+  width: 100% !important;
+  padding: 2% 0%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.col-sm-4 {
+  width: 21%;
+  float: left !important;
+}
+
+button {
+  background-color: rgb(91, 168, 91);
+  border-color: rgb(91, 168, 91);
+}
+
+button:hover {
+
+  background-color: rgb(106, 173, 106);
+  border-color: rgb(87, 170, 87);
+
+}

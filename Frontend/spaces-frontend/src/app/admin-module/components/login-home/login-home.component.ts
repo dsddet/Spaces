@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
 import { ListingsService } from '../../services/get-approved-listings.service'
 import { Store } from '@ngrx/store';
-import {AppState } from '../../../redux/store';
+import { AppState } from '../../../redux/store';
+import {filter} from 'rxjs/operators'
 
 
 @Component({
@@ -9,12 +10,24 @@ import {AppState } from '../../../redux/store';
   selector: 'app-login-home',
   templateUrl: './login-home.component.html',
   //<p class="listing" *ngFor="let listing of data">{{listing["Name"]}}</p>
-  //template: `{{data}}`,
+  // template: `
+  
+
+  // <div *ngFor="let listing of data">
+   
+  // <span *ngIf="listing.Status==='approved'">{{listing.Status}}
+  // <app-listing-detail [name]=listing.Price></app-listing-detail>
+  // </span>
+   
+  //  </div>
+
+
+  // `,
   styleUrls: ['./login-home.component.css'],
 
 })
 export class LoginHomeComponent implements OnInit {
-  //@Input() data: string;
+  data: any;
 
   constructor(private store: Store<AppState>) { 
     
@@ -22,7 +35,7 @@ export class LoginHomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.store.select('spaces').subscribe(x => console.log(x.user));
+    this.store.select('spaces').subscribe(x => this.data=x.listings);
   }
 
 

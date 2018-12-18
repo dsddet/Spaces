@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-pending-listing',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pending-listing.component.css']
 })
 export class PendingListingComponent implements OnInit {
-
+  @Input() name: any;
   constructor() { }
 
   ngOnInit() {
