@@ -1,52 +1,73 @@
 <!DOCTYPE html>
-  <html>
+<html>
 
-  <head>
-    <meta charset="utf-8" />
-    <base href="/">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-  
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <body>
-    <div id="header">
-      <div id="logout">
-        Logout
-      </div>
 
-      <div id="nav">
-        <span>
-          <a [routerLink]="['/admin/customers']">Customers</a>
-        </span>
-        <span>
-          <a [routerLink]="['admin/providers']">Providers</a>
-          </span>
-        <span>
-<a [routerLink]="['admin/pending']">Listings</a></span>
-      </div>
+</head>
 
-      
+<body>
+  <div class="jumbotron">
+    <div class="container text-center">
+      <h1>SPACES</h1>
+      <p>FIND YOUR DREAM HOME</p>
     </div>
-    <div id="pending">
-     
-     <router-outlet>
+  </div>
 
-      
-
-     </router-outlet>
- 
-      </div>
-      <div >
-        <p class="listing" *ngFor="let listing of data">{{listing["Name"]}}</p>
-
-      </div>
+  <div style="text-align:center">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+  </div>
 
 
-        
+  <div id="header">
+    <div id="logout">
+      Logout
+    </div>
 
-  </body>
+    <router-outlet>
 
-  </html>
+
+
+    </router-outlet>
+
+    <div style="float:left;display:inline">
+      <app-listing-detail></app-listing-detail>
+
+    </div>
+
+
+    <div id="nav">
+      <span>
+        <a [routerLink]="['/admin/customers']">Customers</a>
+      </span>
+      <span>
+        <a [routerLink]="['admin/providers']">Providers</a>
+      </span>
+      <span>
+        <a [routerLink]="['admin/pending']">Listings</a></span>
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

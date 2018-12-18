@@ -9,29 +9,29 @@ import { filter } from 'rxjs/Operators';
 @Component({
   selector: 'app-root',
 
-  // template: `<provider-home></provider-home>`, //Provider by Bre
+   //template: `<provider-home></provider-home>`, //Provider by Bre
 
-  //template: ` <app-login-home></app-login-home> `, //Admin by Deus
+  template: ` <app-login-home></app-login-home> `, //Admin by Deus
 
   //template :  `<customer-home></customer-home>`, // Customer by Dawit
 
-  template: `
-   {{username}}
-  <button (click)="printData()">Results</button> 
-  <br><br>
+  // template: `
+  //  {{username}}
+  // <button (click)="printData()">Results</button> 
+  // <br><br>
 
-  <ul>
+  // <ul>
   
-  <li *ngFor="let listing of sub">
-  {{listing._id}}
-  {{listing.Status}}
-  {{listing.Provider}}
+  // <li *ngFor="let listing of sub">
+  // {{listing._id}}
+  // {{listing.Status}}
+  // {{listing.Provider}}
   
-  </li>
+  // </li>
 
-  </ul>
+  // </ul>
       
-  `,
+  // `,
 
   styleUrls: ['./app.component.css']
 })

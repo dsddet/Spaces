@@ -4,9 +4,9 @@ import { ListingsService } from '../../services/get-approved-listings.service'
 @Component({
  // providers: [ListingsService],
   selector: 'app-login-home',
-  //templateUrl: './login-home.component.html',
+  templateUrl: './login-home.component.html',
   //<p class="listing" *ngFor="let listing of data">{{listing["Name"]}}</p>
-  template:`<button (click)="printData()">Results</button> `,
+  //template:`<button (click)="printData()">Results</button> `,
   styleUrls: ['./login-home.component.css'],
   
 })

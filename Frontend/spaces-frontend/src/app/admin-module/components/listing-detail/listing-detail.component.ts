@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isPlatformWorkerApp } from '@angular/common';
 
 @Component({
   selector: 'app-listing-detail',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListingDetailComponent implements OnInit {
 
-  constructor() { }
+
+  listing: Object;
+
+  constructor() {
+    this.listing = { listingId: 1, name: "Utopia Park", price: 1000, state: "Iowa", city: "Fairfield", bedrooms: 2, bathrooms: 2 };
+  }
 
   ngOnInit() {
   }
