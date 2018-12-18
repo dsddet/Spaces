@@ -28,7 +28,8 @@ import { filter } from 'rxjs/Operators';
   //templateUrl: './app.component.html',
   template:`
   <home-page></home-page>
-  <listing-view></listing-view>
+   <app-login-home></app-login-home>
+
 `,
   styleUrls: ['./app.component.css']
 })

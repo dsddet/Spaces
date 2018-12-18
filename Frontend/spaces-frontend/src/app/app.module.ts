@@ -27,13 +27,10 @@ import { HomepageComponent } from './home-page.component';
     AdminModule,
     ProviderModule,
     CustomerModule,
-<<<<<<< HEAD
-    StoreModule.forRoot({spaces:addCoinReducer})
-=======
+    StoreModule.forRoot({spaces:addCoinReducer}),
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({blockchain:addCoinReducer})
->>>>>>> c04eefa19c86fb689ed53e2429e4626ef1ec858c
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
