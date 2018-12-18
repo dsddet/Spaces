@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/**.json": true,
+        "**/**.spec.ts": true,
+        "**/**config**": true,
+        "**/assets/": true,
+        "**/e2e/": true,
+        "**/environments/": true
+    }
+}

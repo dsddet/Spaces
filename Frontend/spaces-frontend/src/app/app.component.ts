@@ -1,45 +1,73 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Store} from '@ngrx/store';
-import { AppState} from './redux/store';
+import { Store } from '@ngrx/store';
+import { AppState } from './redux/store';
 import { ListingsService } from './admin-module/services/get-approved-listings.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { filter } from 'rxjs/Operators';
 
 @Component({
   selector: 'app-root',
-    
+
   // template: `<provider-home></provider-home>`, //Provider by Bre
-  
+
   //template: ` <app-login-home></app-login-home> `, //Admin by Deus
 
-  //template :  `<customer-profile></customer-profile>`, // Customer by Dawit
+  //template :  `<customer-home></customer-home>`, // Customer by Dawit
 
   template: `
-   
+   {{username}}
   <button (click)="printData()">Results</button> 
   <br><br>
 
-  <ol>
-  <li *ngFor="let coin of coins | async">
-          {{ coin.name }}  {{ coin.price }}
-      </li></ol>
-  `,
+  <ul>
   
+  <li *ngFor="let listing of sub">
+  {{listing._id}}
+  {{listing.Status}}
+  {{listing.Provider}}
+  
+  </li>
+
+  </ul>
+      
+  `,
+
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'spaces-frontend';
 
-  coins:Observable<any>
+  message: string;
+  sub: any;
+  user: any;
+  username: string;
 
-  constructor(private store: Store<AppState>, private service:ListingsService) {
-    this.coins = this.store.select('blockchain');
+  constructor(private store: Store<AppState>, private service: ListingsService) {
+
+    var subscript = this.service.getListings("any").subscribe(x => this.sub = x);
+    this.store.dispatch({ type: 'ADD_LISTINGS', payload: { listings: this.sub } });
+
+    var subscr = this.store.select('spaces').subscribe(x => this.message = x);
+
+    this.service.getUserById("1").subscribe(x => this.user = x);  
+    this.store.dispatch({ type: 'NEW USER', payload: this.user });
+    
+    
+
+
   }
 
   printData() {
 
-    this.store.dispatch({ type: 'ADD_COIN', payload: { name: 'Iota', price: 700 } });
+    // this.service.getUserById("1").subscribe(x => {
+    //   this.store.dispatch({ type: 'NEW USER', payload: x });
+    // });
+    this.username = this.user.FirstName;
+
+
+
   }
 
-  
 
 }

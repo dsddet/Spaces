@@ -19,7 +19,7 @@ import { addCoinReducer} from './redux/store'
     AdminModule,
     ProviderModule,
     CustomerModule,
-    StoreModule.forRoot({blockchain:addCoinReducer})
+    StoreModule.forRoot({spaces:addCoinReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

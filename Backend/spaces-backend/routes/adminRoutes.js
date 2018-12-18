@@ -38,9 +38,14 @@ router.get('/listings/:status', (req, res) => {
             Status: 1
         }
     };
-    const query = {
+    let query = {
         Status: req.params.status
     };
+
+    if (req.params.status == "any") {
+        query={}
+    }
+
     req.db.collection('listings').find(query, fields).toArray((err, data) => {
         if (err) res.send(204);
         //console.log(data);
