@@ -8,31 +8,24 @@ import { filter } from 'rxjs/Operators';
 
 @Component({
   selector: 'app-root',
+    
+   template: `<provider-home></provider-home>`, //Provider by Bre
+  
+  //template: ` <app-login-home></app-login-home> `, //Admin by Deus
 
-  //template: `<provider-home></provider-home>`, //Provider by Bre
-
-  template: ` <app-login-home ></app-login-home> `, //Admin by Deus
-
-  //template :  `<customer-home></customer-home>`, // Customer by Dawit
+  //template :  `<customer-profile></customer-profile>`, // Customer by Dawit
 
   // template: `
-  //  {{username}}
+   
   // <button (click)="printData()">Results</button> 
   // <br><br>
 
-  // <ul>
-
-  // <li *ngFor="let listing of sub">
-  // {{listing._id}}
-  // {{listing.Status}}
-  // {{listing.Provider}}
-
-  // </li>
-
-  // </ul>
-
+  // <ol>
+  // <li *ngFor="let coin of coins | async">
+  //         {{ coin.name }}  {{ coin.price }}
+  //     </li></ol>
   // `,
-
+  
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {ProviderService} from '../../services/provider.service';
 import { ObjectUnsubscribedError } from 'rxjs';
 import { getInjectorIndex } from '@angular/core/src/render3/di';
 
@@ -35,13 +36,13 @@ export class AddHouseComponent implements OnInit {
     "DateModified": Date.now(),
     "ReservedBy": null
 };
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(private service: ProviderService, private router:Router) { }
 
   ngOnInit() {
   }
 
   addHome() {
-    this.http.post('http://localhost:4201/provider/listings', this.house)
+    this.service.addNewListing(this.house)
       .subscribe(res => {
           this.router.navigate(['/provider/addhouse']);
         }, (err) => {

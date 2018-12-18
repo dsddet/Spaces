@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import {ProviderService} from '../../services/provider.service';
 
 @Component({
   selector: 'edit-house',
@@ -9,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
   encapsulation: ViewEncapsulation.None
 })
 export class EditHouseComponent implements OnInit {
-  _id = 1;
+  houseId:string=null;
   house:Object = {
-    "_id":this._id,
+    "_id":this.houseId,
     "Name": "",
     "Address": {
         "Street": "",
@@ -32,23 +33,24 @@ export class EditHouseComponent implements OnInit {
     "DateModified": Date.now(),
     "ReservedBy": null
 };
-  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: ProviderService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getHouse(this._id);
+    //this.getHouse(this._id);
   }
 
-  getHouse(id) {
-    this.http.get('http://localhost:4201/provider/listing/'+id).subscribe(data => {
+  getHouse() {
+    this.service.getListingById(this.houseId)
+    .subscribe(data => {
       this.house = data;
     });
   }
 
   updateHouse(data) {
-    this.http.put('http://localhost:4201/provider/patch/'+this._id, data)
-      .subscribe(res => {
+    this.service.updateListing(this.houseId, data)
+        .subscribe(res => {
           //let id = res['_id'];
-          this.router.navigate(['/provider/edithouse/',this._id]);
+          this.router.navigate(['/provider/edithouse']);
         }, (err) => {
           console.log(err);
         }
