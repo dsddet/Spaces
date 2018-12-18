@@ -1,0 +1,46 @@
+<div class="container">
+    <h3>Edit House</h3>
+
+    <div class="row">
+      <div class="col-md-4">
+        <form (ngSubmit)="updateHouse(this.house)" #houseForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="house.Name" name="Name" value={{house.Name}} required>
+          </div>
+          <div class="form-group">
+            <label for="name">Address:</label>
+            <div class="form-group" id="address">
+                <label for="name">Street:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Address.Street" name="Street" value="{{house.Address.Street}}" required>
+                <label for="name">City:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Address.City" name="City" value="{{house.Address.City}}" required>
+                <label for="name">State:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Address.State" name="State" value="{{house.Address.State}}" required>
+                <label for="name">Zip:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Address.Zip" name="Zip" value="{{house.Address.Zip}}" required>
+            </div>
+            
+          </div>
+          <div class="form-group" id="details">
+            <label for="name">Details: </label>
+            <div class="form-group" id="address">
+                <label for="name">Bedrooms:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Details.Bedrooms" name="Bedrooms" value="{{house.Details.Bedrooms}}" required>
+                <label for="name">Bathrooms:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Details.Bathrooms" name="Bathrooms" value="{{house.Details.Bathrooms}}" required>
+                <label for="name">Size (sq.ft):</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Details.Size" name="Size" value="{{house.Details.Size}}" required>
+                <label for="name">Price:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Details.Price" name="Price" value="{{house.Details.Price}}" required>
+                <label for="name">Amenities:</label>
+                <input type="text" class="form-control" [(ngModel)]="house.Details.Amenities" name="Amenities" value="{{house.Details.Amenities}}" required>
+            </div>
+          </div>
+          <div class="form-group">
+              <button type="submit" class="btn btn-success" [disabled]="!houseForm.form.valid">Update</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
