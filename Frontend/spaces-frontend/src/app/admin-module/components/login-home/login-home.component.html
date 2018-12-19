@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <meta charset="utf-8" />
-  <base href="/">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-</head>
-
-<body>
   <!-- <div class="jumbotron">
     <div class="container text-center">
       <h1>SPACES</h1>
@@ -45,13 +31,13 @@
 
     </router-outlet> -->
 
-    <div>
-      <div *ngFor="let listing of data">
+    <div class="main-div">
+        <div *ngFor="let listing of data" >
 
-        <span *ngIf="listing.Status==='approved'">
+        <div *ngIf="listing.Status==='approved'" >
           <app-listing-detail [name]=listing.Price>
           </app-listing-detail>
-        </span>
+        </div>
 
       </div>
 
@@ -73,11 +59,3 @@
       <li class="page-item"><a class="page-link" href="#">Next</a></li>
     </ul>
   </div> -->
-
-
-
-
-
-</body>
-
-</html>

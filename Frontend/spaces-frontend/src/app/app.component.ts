@@ -15,25 +15,15 @@ import { filter } from 'rxjs/Operators';
 
   //template :  `<customer-profile></customer-profile>`, // Customer by Dawit
 
-  // template: `
-   
-  // <button (click)="printData()">Results</button> 
-  // <br><br>
-
-  // <ol>
-  // <li *ngFor="let coin of coins | async">
-  //         {{ coin.name }}  {{ coin.price }}
-  //     </li></ol>
-  // `,
-  //templateUrl: './app.component.html',
-  template:`
-  <home-page></home-page>
-   <app-login-home></app-login-home>
-
-`,
+  template: `<app-user-management></app-user-management>`,
+  //  `
+  //   <home-page></home-page>
+  //   <app-login-home></app-login-home>
+  //  `
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'spaces-frontend';
 
   message: string;
