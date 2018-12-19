@@ -34,6 +34,7 @@ li a:hover:not(.active) {
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 70px;
+  font-weight: bold;
 }
 
 

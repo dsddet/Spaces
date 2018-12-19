@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../redux/store';
+import { filter } from 'rxjs/Operators';
 
 @Component({
   selector: 'app-user-management',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserManagementComponent implements OnInit {
 
-  constructor() { }
+  data: any;
+
+  constructor(private store: Store<AppState>) {
+
+
+  }
 
   ngOnInit() {
+  }
+
+  getStore() {
+    this.store.select('spaces').subscribe(x => console.log(x));
+  }
+
+  getPending() {
+    this.store.select('spaces').subscribe(x => this.data = x.listings.forEach(element => {if (element.Status === "pending") console.log(element); }));
   }
 
 }

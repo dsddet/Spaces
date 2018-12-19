@@ -1,17 +1,22 @@
 <div class="topbar">
   <div style="text-align:center; margin-top:4%;margin-left: -251px;background-color: #f1f1f1;">
-    <span class="titleNumber">Pending Rental Approvals </span>
+    <span class="titleNumber" (click)="getPending()">Pending Rental Approvals </span>
     <span class="dot">300</span>
   </div>
 </div>
 <div style="position:fixed;height: 100vh;width: 20%;size: 50%; margin: auto; float: left;">
   <ul>
-    <li id="userTitle"><a class="active" href="#home">SPACES</a></li>
+    <li id="userTitle"><a class="active" href="#home"(click)="getStore()">SPACES</a></li>
     <li class="user"><a href="#news">Administrators</a>
     </li>
     <li class="user"><a href="#contact">Service Providers</a></li>
     <li class="user"><a href="#about">Customers</a></li>
   </ul>
+
+
+
+
+
 </div>
 
 <div style="display: inline; margin: auto; text-align: center;">
@@ -22,7 +27,7 @@
 
 <div style="border-right-color: rgb(55, 127, 175);background-color:rebeccapurple ;height: 100vh;width: 40%; margin: auto; padding-top:40px; float: right;">
   <div style="text-align:center; margin-top:1%;margin-left: 20%;background-color: #f1f1f1;width: 300px;">
-    <span class="titleNumber active">DIVERSITY AT ITS BEST </span>
+    <span class="titleNumber active" style="font-weight: bold;">DIVERSITY AT ITS BEST </span>
     <span class="notdot">SPA</span>
     <span class="notdot">CES</span>
 
@@ -30,8 +35,8 @@
 
 
 
-<div style="font-size:190px;color:white;display: inline"> <img src="../../../../assets/sd2.PNG" style="height: 200px;margin-left: 25%;margin-bottom: 15%;">
-</div>
+  <div style="font-size:190px;color:white;display: inline"> <img src="../../../../assets/sd2.PNG" style="height: 200px;margin-left: 25%;margin-bottom: 15%;">
+  </div>
 
 
 </div>
