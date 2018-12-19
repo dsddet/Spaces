@@ -5,11 +5,8 @@ import { HttpClient } from "@angular/common/http";
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  signup(user) {
-    return this.http.post("http://localhost:4201/api/users/signup", user);
-  }
 
-  login(user) {
-    return this.http.post("http://localhost:4201/api/users/login", user);
+  getUser(id){
+    return this.http.get('http://localhost:4201/users/'+id);
   }
 }

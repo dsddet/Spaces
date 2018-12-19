@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import {ProviderService} from '../../services/provider.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../redux/store';
 
 @Component({
   selector: 'edit-house',
@@ -33,11 +35,9 @@ export class EditHouseComponent implements OnInit {
     "DateModified": Date.now(),
     "ReservedBy": null
 };
-  constructor(private service: ProviderService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private service: ProviderService, private router: Router, private route: ActivatedRoute, private store: Store<AppState>) { }
 
-  ngOnInit() {
-    //this.getHouse(this._id);
-  }
+  ngOnInit() { }
 
   getHouse() {
     this.service.getListingById(this.houseId)
@@ -46,11 +46,14 @@ export class EditHouseComponent implements OnInit {
     });
   }
 
+  getStore(){
+    this.store.select('spaces').subscribe(data => {console.log(data);})
+  }
+
   updateHouse(data) {
     this.service.updateListing(this.houseId, data)
         .subscribe(res => {
-          //let id = res['_id'];
-          this.router.navigate(['/provider/edithouse']);
+          this.router.navigate(['/edithouse/']);
         }, (err) => {
           console.log(err);
         }

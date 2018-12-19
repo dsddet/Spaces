@@ -26,7 +26,7 @@ export class DeleteHouseComponent implements OnInit {
   deleteHouse(){
     this.service.deleteListingById(this.houseId)
       .subscribe(res => {
-          this.router.navigate(['/provider/deletehouse']);
+          this.router.navigate(['/deletehouse']);
         }, (err) => {
           console.log(err);
         }

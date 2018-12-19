@@ -1,5 +1,6 @@
 import { AuthService } from "./../services/auth.service";
 import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 import {
   FormArray,
   FormBuilder,
@@ -18,7 +19,8 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router:Router
   ) {
     this.loginForm = formBuilder.group({
       email: ["", [Validators.required]],
@@ -36,14 +38,15 @@ export class LoginComponent {
       password: this.loginForm.value.password
     };
 
-    this.authService
-      .login(login)
-      .subscribe(
-        response => {
-          localStorage.setItem('_token',response._token);
-          console.log(response);
-        },
-        error => console.log(error)
-      );
-  }
+    // this.authService
+    //   .login(login)
+    //   .subscribe(
+    //     response => {
+    //       localStorage.setItem('_token',response._token);
+    //       console.log(response);
+    //     },
+    //     error => console.log(error)
+    //   );
+    this.router.navigate(['/provider']);
+   }
 }

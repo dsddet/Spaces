@@ -16,8 +16,8 @@ import { filter } from 'rxjs/Operators';
   //template :  `<customer-profile></customer-profile>`, // Customer by Dawit
 
   // template: `
-   
-  // <button (click)="printData()">Results</button> 
+  //  <provider-home></provider-home>
+  // <button (click)="printData()">Results</button> `,
   // <br><br>
 
   // <ol>
@@ -46,11 +46,10 @@ export class AppComponent {
     // var subscript = this.service.getListings("any").subscribe(x => this.sub = x);
     // this.store.dispatch({ type: 'ADD_LISTINGS', payload: { listings: this.sub } });
 
-    var subscr = this.store.select('spaces').subscribe(x => this.message = x);
+    //var subscr = this.store.select('spaces').subscribe(x => {this.message = x;});
 
     // this.service.getUserById("1").subscribe(x => this.user = x);
     // this.store.dispatch({ type: 'NEW USER', payload: this.user });
-
 
 
 
@@ -61,7 +60,9 @@ export class AppComponent {
     // this.service.getUserById("1").subscribe(x => {
     //   this.store.dispatch({ type: 'NEW USER', payload: x });
     // });
-    this.username = this.user.FirstName;
+    //this.username = this.user.FirstName;
+
+    //this.store.select('spaces').subscribe(x => {console.log(x)});
 
 
 

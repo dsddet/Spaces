@@ -44,7 +44,7 @@ export class AddHouseComponent implements OnInit {
   addHome() {
     this.service.addNewListing(this.house)
       .subscribe(res => {
-          this.router.navigate(['/provider/addhouse']);
+          this.router.navigate(['/addhouse']);
         }, (err) => {
           console.log(err);
         }
