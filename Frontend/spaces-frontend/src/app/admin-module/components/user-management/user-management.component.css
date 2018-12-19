@@ -1,5 +1,6 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif !Important;
+
 }
 
 ul {
@@ -42,13 +43,14 @@ li a:hover:not(.active) {
   background-color: rgb(55, 127, 175);
   ;
   border-radius: 60%;
-  margin-top: 10%;
+  margin-top: 8%;
   padding: 13px;
   /* display: inline-block; */
   font-size: 40px;
   font-weight: bolder;
   vertical-align: middle;
   color: white;
+  margin-bottom: 4%;
 
 }
 
@@ -70,12 +72,14 @@ li a:hover:not(.active) {
 }
 
 .topbar {
-  position: fixed;
+  /* position: fixed; */
   background-color: #f1f1f1;
   position: fixed;
   height: 50px;
   width: 100%;
   margin: auto;
+  
+
 
 }
 
@@ -118,4 +122,8 @@ li a:hover:not(.active) {
 .media-content {
   width:70%;
   height: 100%;
+}
+
+#start{
+  margin-top: 20px;
 }
