@@ -29,13 +29,14 @@ import {filter} from 'rxjs/operators'
 export class LoginHomeComponent implements OnInit {
   data: any;
 
-  constructor(private store: Store<AppState>) { 
+  constructor(private store: Store<AppState>,private service:ListingsService) { 
     
   }
 
 
   ngOnInit() {
     this.store.select('spaces').subscribe(x => this.data=x.listings);
+    this.service.getUserById('1').subscribe(x=>console.log(x));
   }
 
 

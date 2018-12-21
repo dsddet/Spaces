@@ -5,6 +5,7 @@ router.get('/users/:id', (req, res) => {
     req.db.collection('users').findOne({
         "_id": req.params.id
     }, function (err, user) {
+        console.log(user);
         if (err) {
             res.json(204, err);
         } else {

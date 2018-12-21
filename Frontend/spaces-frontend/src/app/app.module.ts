@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login-module/login/login.component';
 import { SignupComponent } from './login-module/signup/signup.component';
 import { HomepageComponent } from './home-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { HomepageComponent } from './home-page.component';
     StoreModule.forRoot({spaces:addCoinReducer}),
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
    
   ],
   providers: [],
